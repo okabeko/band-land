@@ -1,0 +1,12 @@
+<% if logged_in? %>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Band Landをはじめる</h1>
+      <div class="btn btn-primary btn-lg">
+        <%= link_to '新規登録', signup_path %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= render 'bands/bands', bands: @bands %>

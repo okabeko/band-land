@@ -1,0 +1,26 @@
+<% if bands.present? %>
+  <div class="row">
+    <% bands.each do |band| %>
+      <div class="band">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <% if band.image? %>
+                <%= image_tag band.image.url %>
+              <% else %>
+                <%= image_tag 'noimage.gif' %>
+              <% end %>
+            </div>
+            <div class="panel-body">
+              <% if band.persisted? %>
+                <h1 class="text-center"><%= link_to band.name, band %></h1>
+              <% else %>
+                <h1 class="text-center"><%= band.name %></h1>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

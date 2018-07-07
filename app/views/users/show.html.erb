@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-4 col-xs-4">
+    <% if @user.image? %>
+      <%= image_tag @user.image.url, class: "media-object img-rounded img-responsive", alt: @user.name + "アイコン画像" %>
+    <% else %>
+      <%= image_tag 'noimage.gif' %>
+    <% end %>
+            
+    <%= form_for(@user) do |f| %>
+      <div class="form-group">
+    　　<%= f.label :image, 'アイコン' %>
+    　　<%= f.file_field :image %>
+    　</div>
+    　<%= f.submit 'アイコン変更', class: 'btn btn-primary' %>
+    <% end %>
+    
+    <h1 class="panel-title"><%= @user.name %></h3>
+    <h2 class="panel-title"><%= @user.info %></h3>
+  </div>
+  
+  <div class="col-md-4 col-xs-4">
+    <p class="text-center">空き日程追加</p>
+  </div>
+  
+  <div class="col-md-4 col-xs-4">
+    <p class="text-center">参加しているバンド</p>
+  </div>
+</div>
